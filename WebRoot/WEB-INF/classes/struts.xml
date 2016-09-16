@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+
+<package name="" extends="json-default">
+    <action name="register" class="register.Register">
+        <result name="success">/regSuccess.jsp</result>
+    </action>
+    
+     <action name="login" class="register.CheckLogin" method="login">
+        <result name="success">/success.jsp</result>
+    </action> 
+    
+    <action name="checklogin" class="register.CheckLogin" method="checkLogin">
+        <result name="success">/abstract.jsp</result>
+    </action> 
+    
+    <action name="check" class="register.CheckLogin" >
+        <result name="success">/abstract.jsp</result>
+    </action>  
+       
+     <action name="update" class="register.LoginRegister" >
+        <result name="success">/updateSuccess.jsp</result>
+    </action>    
+   
+
+
+
+      
+      <action name="allshow" class="register.Allshow">
+        <result name="success">/allshow.jsp</result>
+    </action><!-- 
+          
+      <action name="allshow_2" class="register.Allshow">
+        <result name="success">/schedule.jsp</result>
+    </action> 
+    
+    
+    
+    
+    
+    
+    --><action name="everyone" class="register.Everyone">
+        <result name="success">/everyone.jsp</result>
+    </action> 
+    
+    <!-- 二维码 -->
+    <action name="exe" class="register.Exe">
+        <result name="success">/everyoneMobile.jsp</result>
+    </action> 
+       
+</package>
+
+
+</struts>    

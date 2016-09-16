@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="Author" content="刘久胜"/>
+<meta name="Keywords"content=""/>
+<meta name="Description" content=""/>
+<link rel="Shortcut Icon"href=""/>
+<title>信息</title>
+<script type="text/javascript"src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+//http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
+$(document).ready(function(){
+	// 图片左右翻滚
+	var size = $('.slidebtn-01>ul>li').length;
+	var frist = 0;
+	var datetime;
+	$('.slidebtn-01 li').mouseover(function(){
+		frist = $('.slidebtn-01 li').index(this);
+		showpic(frist);
+	}).eq(0).mouseover();
+	
+	$('.slidebox-01').hover(function(){
+		clearInterval(datetime);
+	},function(){
+		datetime = setInterval(function(){
+			showpic(frist)
+			frist++;
+			if(frist==size){
+				frist=0;
+			}
+		},3000);
+	}).trigger('mouseleave');
+
+	function showpic(frist){
+		var imgheight = $('.slidebox-01 li').width();
+		$('.slidepic-01').stop(true,false).animate({left:-imgheight*frist},600)
+		$('.slidebtn-01 li').removeClass('current').eq(frist).addClass('current');
+	};
+	//修改导航条字号大小
+
+});
+</script>
+<style type="text/css">
+*{margin:0px;padding:0px;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+#main{margin:0 auto;width:960px;height:1000px;}
+
+#head{width:960px;height:77px;float:left;}
+#logo{width:242px;height:60px;float:left;}
+image{border:none;}
+#head #nav{width:580px;height:60px;float:left;font-size:24px;line-height:80px;margin-left:20px;}
+#head #nav a{color:#008036;}
+#head #nav a:hover{font-weight:bold;}
+
+
+#middle{width:960px;height:950px;background:rgb(240,240,240);;float:left;font-family:micrsoft yahei;margin-top:20px;}
+#left{width:670px;height:800px;float:left;}
+#left #nav{height:38px;margin-left:10px;border-bottom:solid 1px rgb(222,216,203);border-top:solid 1px rgb(222,216,203);background:url('nav_background.gif');}
+#left #nav span{width:105px;height:30px;display:block;float:left;margin-top:6px;text-align:center;}
+
+#left #nav a{font-size:20px;color:#008036;}
+#left #nav a:hover{font-weight:bold;background:url('nav_a_background.gif');height:38px;text-decoration:none;border-left:solid 1px #e8e8e6;border-right:solid 1px #e8e8e6;display:block;}
+#left #content{padding:20px;float:left;margin-left:10px;background:white;width:620px;height:800px;}
+#left #content #from{color:gray;}
+
+#right{width:280px;height:580px;float:right;}
+#note{width:270px;height:100px;float:left;background:white;}
+#note #title{color:#e6b824;border-bottom:solid 1px #e6b824;border-top:solid 1px rgb(222,216,203);font-weight:bold;background:url('title_background.gif');}
+#note #list{font-size:30px;font-style:italic;}
+#time{width:270px;height:250px;float:left;background:white;margin-top:10px;}
+#time #title{color:red;border-bottom:solid 1px red;font-weight:bold;}
+#time #list{margin-left:5px;}
+#time #list tr{height:30px;}
+#time #list tr td:first-child{font-weight:bold;color:#008036;}
+#login{float:left;width:270px;height:180px;background:white;margin-top:10px;}
+#login #title{border-bottom:solid 1px #e6b824;color:rgb(94,120,147);font-weight:bold;}
+#login #form{margin-top:5px;color:#6497CC;}
+
+#history{width:270px;height:350px;float:left;background:white;margin-top:10px;}
+#history #title{color:#008036;border-bottom:solid 1px green;font-weight:bold;background:url('title_background.gif');border-top:solid 1px rgb(222,216,203);}
+#history #list{height:290px;margin-top:5px;}
+#history #list .each{height:35px;border-bottom:dotted gray 1px;}
+#history #list .each .trangle{margin-right:-6px;margin-left:5px;margin-top:5px;float:left;width:0px;height:0px;border:solid white 6px;border-color:transparent transparent transparent rgb(214,204,208);border-style:dashed dashed dashed solid;line-height:0px;}
+#history #list .each a{color:rgb(225,143,48);font-family:microsoft yahei;}
+#history #list .each a:hover{color:red;text-decoration:none;}
+#history #change{height:20px;}
+#history #change ul li{border:solid gray 1px;display:block;width:19px;height:19px;float:left;margin-left:2px;text-align:center;white-space:nowrap;}
+#history #change ul li a{color:#008036;}
+#history #change ul li a:hover{color:red;}
+#history #change ul li:first-child{color:red;border:none;}
+#history #change ul li:last-child{width:80px;}
+
+#foot{width:960px;height:60px;border-top:solid gray 2px;float:left;text-align:center;font-family:microsoft Yahei;color:gray;}
+#foot a{color:gray;}
+#foot a:hover{color:#008036;}
+</style>
+</head>
+<body>
+<div id="main">
+	<div id="head">
+		<div id="logo">
+		<a href="#"><image src="logo.gif"/></a>
+		</div>
+		<div id="nav">
+			<a href="index.html"><span>主页</span></a>
+			<a href="we.html"><span><b>关于我们</b></span></a>
+			<a href=""><span>帮助</span></a>
+		</div>
+	</div>
+	
+	<div id="middle">
+		<div id="left">
+			<div id="nav">
+				<span><a href=""target="">会议介绍</a></span>
+				<span><a href="regway.html">会议注册</a></span>
+				<span><a href="">会议专题</a></span>
+				<span><a href="">会议日程</a></span>
+				<span><a href="">联系方式</a></span>
+				<span><a href="host.html">组委会</a></span>
+			</div>
+			<div id="content">
+			
+			<h2 style="text-align:center;">关于我们的郑重声明</h2>
+
+			<h5 style="text-align:center;">-----青岛软媒网络科技有限公司</h5>
+			<br/>
+			<p id="from">新华社北京9月9日电</p>
+
+			<p>软媒的前身，是青岛乐购信息技术有限公司和北京掌秀无线互动娱乐有限公司，新软媒公司将北京和青岛的公司业务融为一体并重新业务整合，为互联网、PC电脑用户、手机用户、平板电脑用户提供我们所擅长的产品和服务。</p>
+
+			<h5 style="color:#E18F30;">一、我们能做什么：</h5>
+
+			<p>WinForm WebForm PhoneForm 为基础的应用。</p>
+
+			<h5 style="color:#E18F30;">二、我们在做什么：</h5>
+
+			<p>软媒的网站首页（www.RuanMei.com），向您罗列了我们的大部分运营中和规划中的项目。</p>
+
+			<h5 style="color:#E18F30;">三、我们要做什么：</h5>
+
+			<p>用户最需要什么？软媒会根据这个并结合上面的第一点去认真专注的做事。</p>
+			<br/>
+			<div id="">
+			<ul>
+				<li>
+				会议时间：2014年8月19日报到，8月20日-22日会议
+				</li>
+				<li>
+				会议地点：合肥皇冠假日酒店，合肥市黄山路598号A座
+				</li>
+				<li>
+				主办单位：中国遗传学会植物遗传与基因组学专业委员会
+				</li>
+				<li>
+				承办单位：安徽农业大学
+				</li>
+				
+			</ul>
+			</div>
+			<br/>
+			<p style="color:red;font-weight:bold;">
+				说明：会议注册费用由安徽农业大学开具“会务费”发票，汇款请务必注明“基因组会”字样，并将汇款凭证加注汇款人姓名+单位发送至谭振tanzhen613@sian.cn。
+				
+			</p>
+			<p style="color:red;font-weight:bold;">
+			户名：安徽农业大学
+			</p>
+			<p style="color:red;font-weight:bold;">
+			开户行：中国建设银行合肥市梅山路支行
+			</p>
+			<br/>
+			<p ><a href="#"style="color:#E18F30;">>>更多详情</a></p>
+			</div>
+		</div>
+		<div id="right">
+			<div id="note">
+				<div id="title"><image src="new.gif"width="20px"height="20px"/>温馨提示</div>
+				<div id="list">
+				请带上您的相关出席证件哦！
+				</div>
+			</div>
+			<div id="time">
+				<div id="title"><image src="time.gif"width="20px"height="20px"/>重要日期</div>
+				<div id="list">
+					<table>
+					<tr height="30px;">
+						<td>开幕日期：</td>
+						<td>2014年3月13日</td>
+					</tr>
+					<tr>
+						<td>闭幕日期：</td>
+						<td>2014年3月19日</td>
+					</tr>
+					<tr>
+						<td>酒店预定：</td>
+						<td>2014年01月07日</td>
+					</tr>
+					<tr>
+						<td>网站注册：</td>
+						<td>2014看01月03日</td>
+					</tr>
+					<tr>
+						<td>报告提交：</td>
+						<td>2013年12月02日</td>
+					</tr>
+					<tr>
+						<td>海报：</td>
+						<td>2014看01月07日</td>
+					</tr>
+					<tr>
+						<td>差旅补助申请：</td>
+						<td>2013看10月15日</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+			<div id="login">
+				<div id="title"><image src="login.gif"width="20px"height="20px"/>登录</div>
+				<div id="form">
+					<form action=""method="post">
+						Username<font color="red">&nbsp*</font><br/>
+						<input type="text"name="username"/><br/>
+						Password<font color="red">&nbsp*</font><br/>
+						<input type="text"name="password"/>
+						<br/>
+						<a href="reg.html"><font color="#E18F30">Request new passowrd</font></a>
+						<br/>
+						<input type="submit"value="Log in"/>
+					</form>
+				</div>
+			</div>
+			<div id="history">
+				<div id="title"><image src="history.gif"width="20px"height="20px"/>历史会议</div>
+				<div id="list">
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">习近平：做党和人民喜爱的好老师</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">我校第五期科级干部培训班开班 </a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">我校启动学位授权点评估工作</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">李忠云一行到鄂州基地检查建设情况</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">湖北省农业法学2014年年会</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">习近平：做党和人民喜爱的好老师</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">【南都周刊】转基因之战，谁输了？</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">习近平：做党和人民喜爱的好老师</a>
+					</div>
+				</div>
+				<div id="change">
+				<ul>
+					<li><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+					<li><a href="">4</a></li>
+					<li><a href="">5</a></li>
+					<li><a href="">6</a></li>
+					<li><a href="">7</a></li>
+					<li><a href="">下一页</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="foot">
+	友情链接：<a href="www.hzau.edu.cn">华中农业大学</a>&nbsp|&nbsp<a href="http://coi.hzau.edu.cn/">华农信息学院</a>&nbsp|&nbsp<a href="http://www.ewe.com.cn/">[我们]网</a>&nbsp|&nbsp<a href="http://www.freeer.cc/">我的主页</a><br/>
+	CopyRight©2013-2014&nbsp华中农业大学版权所有 &nbsp 鄂ICP备13013419<br/>
+	Powerd by:liu &nbsp mail:891599396@qq.com
+	</div>
+</div>
+</body>
+</html>

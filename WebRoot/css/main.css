@@ -1,0 +1,67 @@
+*{margin:0px;padding:0px;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+#main{margin:0 auto;width:960px;height:1090px;}
+
+#head{width:960px;height:77px;float:left;}
+image{border:none;}
+#head #nav{width:580px;height:60px;float:left;font-size:24px;line-height:80px;margin-left:20px;}
+#head #nav a{color:#008036;}
+#head #nav a:hover{font-weight:bold;}
+//#login{width:100px;height:20px;float:right;}
+
+#pic{width:960px;height:300px;float:left;text-align:center;}
+.slidebox-01{width:960px;height:300px;overflow:hidden;position:relative;margin:0px;}
+.slidepic-01{position:absolute;width:9999em;}/* 必要元素 660pxauto*/
+.slidepic-01 li{height:300px;overflow:hidden;float:left;z-index:0;}
+.slidebtn-01{position:absolute;bottom:10px;right:50%;float:right;}
+.slidebtn-01 li{list-style-type:none;background:gray;border:1px solid gray;border-radius:15px;cursor:pointer;float:left;font-family:arial;height:18px;line-height:18px;width:18px;margin:4px;text-align:center;color:#D00000;}
+.slidebtn-01 li.current{background:white;border:none;height:24px;line-height:24px;width:24px;margin:0 2px;color:#fff;font-weight:800;}
+
+#middle{width:960px;height:800px;background:rgb(240,240,240);;float:left;font-family:micrsoft yahei;margin-top:20px;}
+#left{width:670px;height:800px;float:left;}
+#left #nav{height:38px;margin-left:10px;border-bottom:solid 1px rgb(222,216,203);border-top:solid 1px rgb(222,216,203);background:url('nav_background.gif');}
+#left #nav span{width:105px;height:30px;display:block;float:left;margin-top:6px;text-align:center;}
+
+#left #nav a{font-size:20px;color:#008036;}
+#left #nav a:hover{font-weight:bold;background:url('nav_a_background.gif');height:38px;text-decoration:none;border-left:solid 1px #e8e8e6;border-right:solid 1px #e8e8e6;display:block;}
+#left #content{padding:20px;float:left;margin-left:10px;background:white;}
+#left #content #from{color:gray;}
+#left #wall{border-bottom:solid 2px #6497cc;color:#6497cc;font-weight:bold;}
+
+#right{width:280px;height:580px;float:right;}
+#note{width:270px;height:100px;float:left;background:white;}
+#note #title{color:#e6b824;border-bottom:solid 1px #e6b824;border-top:solid 1px rgb(222,216,203);font-weight:bold;background:url('title_background.gif');}
+#note #list{font-size:30px;font-style:italic;}
+#time{width:270px;height:240px;float:left;background:white;margin-top:10px;}
+#time #title{color:red;border-bottom:solid 1px red;font-weight:bold;margin-left:10px;}
+#time #list{margin-left:8px;}
+#time #list tr{height:30px;}
+#time #list tr td:first-child{font-weight:bold;color:#008036;}
+#login{float:left;width:270px;height:210px;background:white;margin-top:10px;}
+#login #title{border-bottom:solid 1px #e6b824;color:rgb(94,120,147);font-weight:bold;}
+#login #form{margin-top:5px;color:#6497CC;}
+
+
+#logo{float:left;width:270px;height:160px;background:white;margin-top:10px;}
+
+#history_2{width:270px;height:110px;float:left;background:white;margin-top:10px;}
+
+
+#history{width:270px;height:260px;float:left;background:white;margin-top:10px;}
+#history #title{color:#008036;border-bottom:solid 1px green;margin-left:5px;margin-top:12px;font-weight:bold;background:url('title_background.gif');} 
+#history #list{height:290px;margin-top:5px;}
+#history #list .each{height:30px;border-bottom:dotted gray 1px;margin-top:8px;}
+#history #list .each .trangle{margin-right:-6px;margin-left:5px;margin-top:5px;float:left;width:0px;height:0px;border:solid white 6px;border-color:transparent transparent transparent rgb(214,204,208);border-style:dashed dashed dashed solid;line-height:0px;}
+#history #list .each a{color:rgb(225,143,48);font-family:microsoft yahei;}
+#history #list .each a:hover{color:red;text-decoration:none;}
+#history #change{height:20px;}
+#history #change ul li{border:solid gray 1px;display:block;width:19px;height:19px;float:left;margin-left:2px;text-align:center;white-space:nowrap;}
+#history #change ul li a{color:#008036;}
+#history #change ul li a:hover{color:red;}
+#history #change ul li:first-child{color:red;border:none;}
+#history #change ul li:last-child{width:80px;}
+
+#foot{width:960px;height:60px;border-top:solid gray 2px;float:left;text-align:center;font-family:microsoft Yahei;color:gray;}
+#foot a{color:gray;}
+#foot a:hover{color:#008036;}

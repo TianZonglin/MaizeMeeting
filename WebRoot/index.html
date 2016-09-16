@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="Author" content="刘久胜"/>
+<meta name="Keywords"content=""/>
+<meta name="Description" content=""/>
+<link rel="Shortcut Icon"href=""/>
+<title>信息</title>
+<script type="text/javascript"src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+//http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
+$(document).ready(function(){
+	// 图片左右翻滚
+	var size = $('.slidebtn-01>ul>li').length;
+	var frist = 0;
+	var datetime;
+	$('.slidebtn-01 li').mouseover(function(){
+		frist = $('.slidebtn-01 li').index(this);
+		showpic(frist);
+	}).eq(0).mouseover();
+	
+	$('.slidebox-01').hover(function(){
+		clearInterval(datetime);
+	},function(){
+		datetime = setInterval(function(){
+			showpic(frist)
+			frist++;
+			if(frist==size){
+				frist=0;
+			}
+		},3000);
+	}).trigger('mouseleave');
+
+	function showpic(frist){
+		var imgheight = $('.slidebox-01 li').width();
+		$('.slidepic-01').stop(true,false).animate({left:-imgheight*frist},600)
+		$('.slidebtn-01 li').removeClass('current').eq(frist).addClass('current');
+	};
+	//修改导航条字号大小
+
+});
+</script>
+<style type="text/css">
+*{margin:0px;padding:0px;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+#main{margin:0 auto;width:960px;height:1390px;}
+
+#head{width:960px;height:77px;float:left;}
+#logo{width:242px;height:60px;float:left;}
+image{border:none;}
+#head #nav{width:580px;height:60px;float:left;font-size:24px;line-height:80px;margin-left:20px;}
+#head #nav a{color:#008036;}
+#head #nav a:hover{font-weight:bold;}
+//#login{width:100px;height:20px;float:right;}
+
+#pic{width:960px;height:300px;float:left;text-align:center;}
+.slidebox-01{width:960px;height:300px;overflow:hidden;position:relative;margin:0px;}
+.slidepic-01{position:absolute;width:9999em;}/* 必要元素 660pxauto*/
+.slidepic-01 li{height:300px;overflow:hidden;float:left;z-index:0;}
+.slidebtn-01{position:absolute;bottom:10px;right:50%;float:right;}
+.slidebtn-01 li{list-style-type:none;background:gray;border:1px solid gray;border-radius:15px;cursor:pointer;float:left;font-family:arial;height:18px;line-height:18px;width:18px;margin:4px;text-align:center;color:#D00000;}
+.slidebtn-01 li.current{background:white;border:none;height:24px;line-height:24px;width:24px;margin:0 2px;color:#fff;font-weight:800;}
+
+#middle{width:960px;height:950px;background:rgb(240,240,240);;float:left;font-family:micrsoft yahei;margin-top:20px;}
+#left{width:670px;height:800px;float:left;}
+#left #nav{height:38px;margin-left:10px;border-bottom:solid 1px rgb(222,216,203);border-top:solid 1px rgb(222,216,203);background:url('nav_background.gif');}
+#left #nav span{width:105px;height:30px;display:block;float:left;margin-top:6px;text-align:center;}
+
+#left #nav a{font-size:20px;color:#008036;}
+#left #nav a:hover{font-weight:bold;background:url('nav_a_background.gif');height:38px;text-decoration:none;border-left:solid 1px #e8e8e6;border-right:solid 1px #e8e8e6;display:block;}
+#left #content{padding:20px;float:left;margin-left:10px;background:white;}
+#left #content #from{color:gray;}
+#left #wall{border-bottom:solid 2px #6497cc;color:#6497cc;font-weight:bold;}
+
+#right{width:280px;height:580px;float:right;}
+#note{width:270px;height:100px;float:left;background:white;}
+#note #title{color:#e6b824;border-bottom:solid 1px #e6b824;border-top:solid 1px rgb(222,216,203);font-weight:bold;background:url('title_background.gif');}
+#note #list{font-size:30px;font-style:italic;}
+#time{width:270px;height:250px;float:left;background:white;margin-top:10px;}
+#time #title{color:red;border-bottom:solid 1px red;font-weight:bold;}
+#time #list{margin-left:5px;}
+#time #list tr{height:30px;}
+#time #list tr td:first-child{font-weight:bold;color:#008036;}
+#login{float:left;width:270px;height:180px;background:white;margin-top:10px;}
+#login #title{border-bottom:solid 1px #e6b824;color:rgb(94,120,147);font-weight:bold;}
+#login #form{margin-top:5px;color:#6497CC;}
+
+#history{width:270px;height:350px;float:left;background:white;margin-top:10px;}
+#history #title{color:#008036;border-bottom:solid 1px green;font-weight:bold;background:url('title_background.gif');border-top:solid 1px rgb(222,216,203);}
+#history #list{height:290px;margin-top:5px;}
+#history #list .each{height:35px;border-bottom:dotted gray 1px;}
+#history #list .each .trangle{margin-right:-6px;margin-left:5px;margin-top:5px;float:left;width:0px;height:0px;border:solid white 6px;border-color:transparent transparent transparent rgb(214,204,208);border-style:dashed dashed dashed solid;line-height:0px;}
+#history #list .each a{color:rgb(225,143,48);font-family:microsoft yahei;}
+#history #list .each a:hover{color:red;text-decoration:none;}
+#history #change{height:20px;}
+#history #change ul li{border:solid gray 1px;display:block;width:19px;height:19px;float:left;margin-left:2px;text-align:center;white-space:nowrap;}
+#history #change ul li a{color:#008036;}
+#history #change ul li a:hover{color:red;}
+#history #change ul li:first-child{color:red;border:none;}
+#history #change ul li:last-child{width:80px;}
+
+#foot{width:960px;height:60px;border-top:solid gray 2px;float:left;text-align:center;font-family:microsoft Yahei;color:gray;}
+#foot a{color:gray;}
+#foot a:hover{color:#008036;}
+</style>
+</head>
+<body>
+<div id="main">
+	<div id="head">
+		<div id="logo">
+		<a href="#"><image src="logo.gif"/></a>
+		</div>
+		<div id="nav">
+			<a href="index.html"><span><b>主页</b></span></a>
+			<a href="we.html"><span>关于我们</span></a>
+			<a href=""><span>帮助</span></a>
+		</div>
+	
+	</div>
+	<div id="pic">
+		<div class="slidebox-01">
+					<ul style="left:0px;" class="slidepic-01">
+						
+							<a href=""target="_blank"><!--ie浏览器解析图片的时候有时会默认给它加一个边框-->
+								<li><image alt="" src="zbwut.jpg" height="300px" width="960px"/></li>
+							</a>
+							<a href=""target="_blank">
+								<li><image alt="" src="zbwut.jpg" height="300px" width="960px"/></li>
+							</a>
+							<a href=""target="_blank">
+								<li><image alt="" src="zbwut.jpg" height="300px" width="960px"/></li>
+							</a>
+							<a href=""target="_blank">
+								<li><image alt="" src="zbwut.jpg" height="300px" width="960px"/></li>
+							</a>
+					</ul>
+					
+		</div>
+	
+	</div>
+	<div id="middle">
+		<div id="left">
+			<div id="nav">
+				<span><a href=""target="">会议介绍</a></span>
+				<span><a href="regway.html">会议注册</a></span>
+				<span><a href="">会议专题</a></span>
+				<span><a href="">会议日程</a></span>
+				<span><a href="">联系方式</a></span>
+				<span><a href="host.html">组委会</a></span>
+			</div>
+			
+ <div class="content">
+
+        <h2 property="dc:title" datatype="" class="title"><a href="http://www.plantgenomics.cn/?q=node/15">第十五届植物基因组学大会网上注册说明</a></h2>
+    
+      <span class="submitted">Submitted by croplab on Tue, 06/17/2014 - 16:40</span>   
+  
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>非常感谢各位老师对第十五届植物基因组学大会的关注！</p>
+<p>本次会议采取网上注册，现在已经开始注册。2014年6月30日（含）前注册的正式代表注册费1600元，学生代表1200元。6月30日后注册的正式代表1800元，学生代表1400元，注册截止期为7月30日。截止期后注册的代表将收取注册费2000元，会务组不保证住宿。</p>
+<p>下面详细说明一下网上注册的流程：</p>
+<p><strong>1.</strong><strong>注册账号</strong></p>
+<p>请点击网页左侧边栏User Login下的Create New Account，填写基本的注册信息即可注册成功。</p>
+<p><strong>2.</strong><strong>提交摘要、口头报告</strong></p>
+<p>如果您没有需要提交的摘要及口头报告，可以略过这一步骤。</p>
+<p>使用新建的账号登陆后，可看见左边Navigation栏目内容有所扩展。可以点击“提交我的摘要”、“查看我提交的摘要”、“提交我的口头报告”、“查看我提交的口头报告”等栏目提交和查看已经提交的摘要及口头报告，并登记是否携带墙报参会。</p>
+<p><strong>3.</strong><strong>会议注册</strong></p></div></div></div>  </div>
+
+  
+</div>
+
+
+<div id="node-11" class="node node-article node-promoted node-sticky node-teaser clearfix" about="/?q=node/11" typeof="sioc:Item foaf:Document">
+
+  
+        <h2 property="dc:title" datatype="" class="title"><a href="http://www.plantgenomics.cn/?q=node/11">第十五届全国植物基因组学大会第二轮通知</a></h2>
+    
+      <span class="submitted">
+      Submitted by <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/?q=user/1" typeof="sioc:UserAccount" property="foaf:name" datatype="">croplab</span></span> on <span property="dc:date dc:created" content="2014-06-09T18:28:04+08:00" datatype="xsd:dateTime">Mon, 06/09/2014 - 18:28</span>    </span>
+  
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>&nbsp;</p>
+<p align="center"><strong>第十</strong><strong>五</strong><strong>届全国植物基因组学大会第</strong><strong>二</strong><strong>轮通知</strong></p>
+<p>为充分展示植物基因组研究领域的重大进展，推动我国植物基因组学研究的深入和农业生物技术产业的快速发展，定于2014年8月19－22日（19日报到）在安徽合肥召开第十五届全国植物基因组学大会。会议将邀请国内外植物基因组学研究领域知名科学家作学术研究报告。我们诚挚邀请国内外从事相关研究的专家学者和研究生参加本次大会。</p>
+<p><strong>会议时间：</strong>2014年8月19日报到，8月20日－22日会议</p>
+<p><strong>会议地点：</strong>合肥皇冠假日酒店 &nbsp;合肥市黄山路598号A座</p>
+<p><strong>主办单位：</strong>中国遗传学会植物遗传与基因组学专业委员会</p>
+<p><strong>承办单位：</strong>安徽农业大学</p>
+<p><strong>大会组委会</strong><strong>:</strong></p></div></div></div>  </div>
+
+      <div class="links">» <ul class="links inline"><li class="node-readmore first last"><a href="http://www.plantgenomics.cn/?q=node/11" rel="tag" title="第十五届全国植物基因组学大会第二轮通知">Read more<span class="element-invisible"> about 第十五届全国植物基因组学大会第二轮通知</span></a></li>
+</ul></div>
+  
+  
+</div>
+<div id="node-2" class="node node-article node-promoted node-sticky node-teaser clearfix" about="/?q=node/2" typeof="sioc:Item foaf:Document">
+
+  
+        <h2 property="dc:title" datatype="" class="title"><a href="http://www.plantgenomics.cn/?q=node/2">第十五届全国植物基因组学大会第一轮通知</a></h2>
+    
+      <span class="submitted">
+      Submitted by <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/?q=user/1" typeof="sioc:UserAccount" property="foaf:name" datatype="">croplab</span></span> on <span property="dc:date dc:created" content="2014-03-15T17:30:59+08:00" datatype="xsd:dateTime">Sat, 03/15/2014 - 17:30</span>    </span>
+  
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><div>
+<p style="margin-left:2.0pt;"><span style="font-size: 13px; line-height: 1.6em;">为充分展示植物基因组研究领域的重大进展，推动我国植物基因组学研究 的深入和农业生物技术产业的快速发展，定于 2014 年 8 月 19－22 日（19 日报 到）在安徽合肥召开第十五届全国植物基因组学大会。会议将邀请国内外植物 基因组学研究领域知名科学家作学术研究报告。我们诚挚邀请国内外从事相关研究的专家学者和研究生参加本次大会。</span></p></div></div></div></div>  </div>
+
+      <div class="links">» <ul class="links inline"><li class="node-readmore first last"><a href="http://www.plantgenomics.cn/?q=node/2" rel="tag" title="第十五届全国植物基因组学大会第一轮通知">Read more<span class="element-invisible"> about 第十五届全国植物基因组学大会第一轮通知</span></a></li>
+</ul></div>
+  
+  
+</div>
+
+			<div id="">
+				<div id="wall"><image src="trr.gif"width="20px"height="20px"/>会议墙报尺寸</div>
+				<p><font color="gray">Submitted by croplab on Tue,06/10/2014 - 21:37</font></p>
+				<br/><p>大会鼓励墙报交流，并评选优秀墙报奖，并将从提交的摘要中选择一部分作为大会口头报告。</p>
+				</br><p>墙报尺寸统一为80cm（宽）X120cm(高)，谢谢！</p>
+			</div>
+			</div>
+		<div id="right">
+			<div id="note">
+				<div id="title"><image src="new.gif"width="20px"height="20px"/>温馨提示</div>
+				<div id="list">
+				请带上您的相关出席证件哦！
+				</div>
+			</div>
+			<div id="time">
+				<div id="title"><image src="time.gif"width="20px"height="20px"/>重要日期</div>
+				<div id="list">
+					<table>
+					<tr height="30px;">
+						<td>开幕日期：</td>
+						<td>2014年3月13日</td>
+					</tr>
+					<tr>
+						<td>闭幕日期：</td>
+						<td>2014年3月19日</td>
+					</tr>
+					<tr>
+						<td>酒店预定：</td>
+						<td>2014年01月07日</td>
+					</tr>
+					<tr>
+						<td>网站注册：</td>
+						<td>2014看01月03日</td>
+					</tr>
+					<tr>
+						<td>报告提交：</td>
+						<td>2013年12月02日</td>
+					</tr>
+					<tr>
+						<td>海报：</td>
+						<td>2014看01月07日</td>
+					</tr>
+					<tr>
+						<td>差旅补助申请：</td>
+						<td>2013看10月15日</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+			<div id="login">
+				<div id="title"><image src="login.gif"width="20px"height="20px"/>登录</div>
+				<div id="form">
+					<form action=""method="post">
+						Username<font color="red">&nbsp*</font><br/>
+						<input type="text"name="username"/><br/>
+						Password<font color="red">&nbsp*</font><br/>
+						<input type="text"name="password"/>
+						<br/>
+						<a href="reg.html"><font color="#E18F30">Request new passowrd</font></a>
+						<br/>
+						<input type="submit"value="Log in"/>
+					</form>
+				</div>
+			</div>
+			<div id="history">
+				<div id="title"><image src="history.gif"width="20px"height="20px"/>历史会议</div>
+				<div id="list">
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">习近平：做党和人民喜爱的好老师</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">我校第五期科级干部培训班开班 </a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">我校启动学位授权点评估工作</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">李忠云一行到鄂州基地检查建设情况</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">湖北省农业法学2014年年会</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">习近平：做党和人民喜爱的好老师</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">【南都周刊】转基因之战，谁输了？</a>
+					</div>
+					<div class="each">
+						<div class="trangle"style=""></div>
+						<a href="">习近平：做党和人民喜爱的好老师</a>
+					</div>
+				</div>
+				<div id="change">
+				<ul>
+					<li><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+					<li><a href="">4</a></li>
+					<li><a href="">5</a></li>
+					<li><a href="">6</a></li>
+					<li><a href="">7</a></li>
+					<li><a href="">下一页</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="foot">
+	友情链接：<a href="www.hzau.edu.cn">华中农业大学</a>&nbsp|&nbsp<a href="http://coi.hzau.edu.cn/">华农信息学院</a>&nbsp|&nbsp<a href="http://www.ewe.com.cn/">[我们]网</a>&nbsp|&nbsp<a href="http://www.freeer.cc/">我的主页</a><br/>
+	CopyRight©2013-2014&nbsp华中农业大学版权所有 &nbsp 鄂ICP备13013419<br/>
+	Powerd by:liu &nbsp mail:891599396@qq.com
+	</div>
+</div>
+</body>
+</html>

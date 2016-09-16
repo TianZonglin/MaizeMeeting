@@ -1,0 +1,86 @@
+<!DOCTY0PE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+	a{text-decoration:none;}
+	a:hover{text-decoration:underline;}
+	#logins {text-align:center;position:relative;left:400px;top:100px;background:#d2d2d4;width:450px;height:380px;border:solid 1px gray;border-radius:10px 10px 10px 10px;}
+	#logins  #title{font-size:30px;font-family:Microsoft YaHei;text-align:left;}
+	#logins  #zhuchequ{width:80px;height:40px;}
+	#logins  #zhuchequ :hover{color:rgb(63, 193, 250);}
+	#logins  #input{width:122px;height:30px;background:#62a618;border:solid 1px;color:#f8f5ee;font-size:14px;border-radius:5px 5px 5px 5px;}
+	#logins  #input:hover{background:rgb(63, 193, 250);}
+	form{text-align:left;margin-top:20px;margin-left:80px;}
+</style>
+<script type="text/javascript">
+$(document).ready(
+function()
+{
+
+
+
+}
+)
+
+</script>
+</head>
+<body>
+<div id="logins">
+
+<br/>
+<div id="title">
+&nbsp&nbsp&nbsp&nbsp注册
+</div>
+<form action="register.action" method="post" enctype ="multipart/form-data">
+<table width="350px">
+<tr >
+<td style="width:800px;">用户名：</td>
+<td ><input type="text"name="username"/></td>
+</tr>
+<tr>
+<td style="width:800px;">密码：</td>
+<td><input type="password"name="password"/></td>
+</tr>
+<tr>
+<td>姓名：</td>
+<td><input type="text"name="name"/></td>
+</tr>
+<tr>
+<td>单位：</td>
+<td><input type="text"name="company"></td>
+</tr>
+<tr>
+<td>地址：</td>
+<td><input type="text"name="address"/></td>
+</tr>
+</tr>
+<tr>
+<td>邮箱：</td>
+<td><input type="text"name="email"/></td>
+</tr>
+<tr>
+<td>手机：</td>
+<td><input type="text"name="phone"/></td>
+</tr>
+<tr>
+<td>预定酒店：</td>
+<td><input type="radio" value="yes" checked="checked" name="hotel"/>是 <input type="radio" value="no" name="hotel"/>否</td>
+</tr>
+<tr>
+<td>上传文档：</td>
+<td><input type="file"name="file"/></td>
+</tr>
+<tr>
+<td>
+<a href="index.jsp">返回主页</a>	
+</td>
+<td><input type="submit"value="注册"id="input"/></td>
+</tr>
+</table>
+	
+	
+</form>
+</div>
+</body>
+</html>
